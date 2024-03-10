@@ -1,0 +1,21 @@
+[user]
+	email = <email_address>
+	name = <name>
+[alias]
+	ci = commit
+	st = status
+	co = checkout
+	br = branch
+	ass = add
+	ha = log --graph --color --pretty=format:'%Cred%h%Creset %ad |%C(yellow)%d%Creset %s %C(blue)%ae %C(bold blue)<%an>%Creset' --date=short --branches=* --remotes=*
+follow = log --follow -p --
+everything = !git log --graph --color --pretty=format:'%Cred%h%Creset %ad | %s %C(yellow)%d%Creset %C(blue)%ce %C(bold blue)<%an>%Creset' --date=short `git rev-list -g --all`
+midiff= diff --color-words='\\w+|.'
+
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
